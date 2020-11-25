@@ -384,5 +384,58 @@ df.iloc[:2,2] = NA
 # print(df.fillna(3))  #누락된 곳에 값을 넣어줌
 # print(df.fillna({1:0.5,2:3}))
 
-data = pd.DataFrame({'k1':['one','Two']*3 + ['Two'], 'k2' : [1,1,2,3,3,4,4]})
-print(data.drop_duplicates()) #False값을 DataFrame에 반환
+# data = pd.DataFrame({'k1':['one','Two']*3 + ['Two'], 'k2' : [1,1,2,3,3,4,4]})
+# print(data.drop_duplicates()) #False값을 DataFrame에 반환
+
+
+Data = pd.DataFrame(np.arange(6).reshape((2,3)))
+result =Data.stack()
+# print(result.unstack())
+# print(result)
+
+data =np.arange(10)
+import seaborn as sns
+import random
+# sns.barplot(data)
+# fig = plt.figure()
+# a = fig.add_subplot(2,2,1)  # 서브 plot(가로,세로,위치(1~6번까지인듯)
+# a1 = fig.add_subplot(2,2,2)
+# a2 = fig.add_subplot(2,2,3)
+# a3 = fig.add_subplot(2,2,4)
+# plt.plot(np.random.randn(50).cumsum(), 'k--')
+# _ = a1.hist(np.random.randn(100),bins=20,color='k',alpha=1)
+# _ = a2.scatter(np.arange(30), np.arange(30)+3 *np.random.randn(30))
+# from numpy.random import randn
+# plt.plot(randn(30).cumsum(),'ko--')
+# plt.show()
+
+
+# class Apple:
+#     def f1(self):
+#         print(1)
+#         return self
+#     def f2(self, func):
+#         print(2)
+#         num = func(100)               # f3(group)인수
+#         return num * 3
+# def f3(group):
+#     print(group)                # 100 출력
+#     return group * 2
+# a = Apple()
+# b = a.f1().f2(f3)               # 함수 번호 1번에 return이 반드시 있어야한다
+# print(b)
+
+class Apple:
+    def group(self):
+        print(1)
+        return self
+    def apply(self, func):
+        print(2)
+        num = func(100)               # f3(group)인수
+        return num * 3
+def add_prop(group):
+    print(group)                # 100 출력
+    return group * 2
+names = Apple()
+b = names.group().apply(add_prop())               # 함수 번호 1번에 return이 반드시 있어야한다
+print(b)
