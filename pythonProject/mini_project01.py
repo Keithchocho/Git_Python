@@ -2,6 +2,10 @@ import requests
 from bs4 import BeautifulSoup
 from selenium import webdriver
 import time
+import folium
+from pandas import DataFrame
+from pandas import ExcelFile
+
 param = '수원'
 url = 'https://www.diningcode.com/list.php?query='+param
 html = requests.get(url)
